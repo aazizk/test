@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 420" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#2b2b2b"/>
+    </marker>
+  </defs>
+  <text x="350" y="26" font-size="17" font-weight="bold" text-anchor="middle" fill="#1a1a1a">Site vs. Origin: Why the First Test Was Fooled</text>
+
+  <!-- Outer SITE box -->
+  <rect x="40" y="55" width="300" height="160" rx="6" fill="#eafaf1" stroke="#1e8449" stroke-width="2"/>
+  <text x="190" y="75" font-size="14" font-weight="bold" text-anchor="middle" fill="#1a1a1a">SITE = 127.0.0.1 (scheme+domain)</text>
+
+  <rect x="60" y="90" width="110" height="55" rx="6" fill="#f2f4f7" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="115" y="112" font-size="13" text-anchor="middle" fill="#1a1a1a">bank.py</text>
+  <text x="115" y="130" font-size="12" text-anchor="middle" fill="#1a1a1a">127.0.0.1:5000</text>
+
+  <rect x="200" y="90" width="110" height="55" rx="6" fill="#f2f4f7" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="255" y="112" font-size="13" text-anchor="middle" fill="#1a1a1a">evil.py</text>
+  <text x="255" y="130" font-size="12" text-anchor="middle" fill="#1a1a1a">127.0.0.1:5001</text>
+
+  <text x="190" y="175" font-size="12" text-anchor="middle" fill="#1a1a1a">Different ORIGIN (port differs)</text>
+  <text x="190" y="195" font-size="12" font-weight="bold" text-anchor="middle" fill="#1e8449">SAME SITE -- SameSite does nothing</text>
+
+  <!-- Outer SITE box 2 -->
+  <rect x="380" y="55" width="280" height="160" rx="6" fill="#fdecea" stroke="#c0392b" stroke-width="2"/>
+  <text x="520" y="75" font-size="14" font-weight="bold" text-anchor="middle" fill="#1a1a1a">TWO DIFFERENT SITES</text>
+
+  <rect x="400" y="90" width="110" height="55" rx="6" fill="#f2f4f7" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="455" y="112" font-size="13" text-anchor="middle" fill="#1a1a1a">bank.py</text>
+  <text x="455" y="130" font-size="12" text-anchor="middle" fill="#1a1a1a">127.0.0.1:5000</text>
+
+  <rect x="530" y="90" width="110" height="55" rx="6" fill="#f2f4f7" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="585" y="112" font-size="13" text-anchor="middle" fill="#1a1a1a">evil.py</text>
+  <text x="585" y="130" font-size="12" text-anchor="middle" fill="#1a1a1a">localhost:5001</text>
+
+  <text x="520" y="175" font-size="12" text-anchor="middle" fill="#1a1a1a">Different host string entirely</text>
+  <text x="520" y="195" font-size="12" font-weight="bold" text-anchor="middle" fill="#c0392b">DIFFERENT SITE -- SameSite applies</text>
+
+  <!-- Results table -->
+  <text x="350" y="250" font-size="15" font-weight="bold" text-anchor="middle" fill="#1a1a1a">Real cross-site result (localhost vs. 127.0.0.1)</text>
+
+  <rect x="80" y="270" width="540" height="130" rx="6" fill="#f2f4f7" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="140" y="295" font-size="13" font-weight="bold" fill="#1a1a1a">Cookie</text>
+  <text x="330" y="295" font-size="13" font-weight="bold" fill="#1a1a1a">Auto-POST attack</text>
+  <text x="500" y="295" font-size="13" font-weight="bold" fill="#1a1a1a">Clicked GET link</text>
+
+  <line x1="90" y1="305" x2="610" y2="305" stroke="#2b2b2b" stroke-width="1"/>
+
+  <text x="140" y="325" font-size="12" fill="#1a1a1a">session (default)</text>
+  <text x="330" y="325" font-size="12" fill="#c0392b">blocked</text>
+  <text x="500" y="325" font-size="12" fill="#1e8449">sent</text>
+
+  <text x="140" y="350" font-size="12" fill="#1a1a1a">session_lax</text>
+  <text x="330" y="350" font-size="12" fill="#c0392b">blocked</text>
+  <text x="500" y="350" font-size="12" fill="#1e8449">sent</text>
+
+  <text x="140" y="375" font-size="12" fill="#1a1a1a">session_strict</text>
+  <text x="330" y="375" font-size="12" fill="#c0392b">blocked</text>
+  <text x="500" y="375" font-size="12" fill="#c0392b">blocked</text>
+</svg>

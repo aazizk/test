@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 420" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#2b2b2b"/>
+    </marker>
+    <marker id="arrowRed" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#c0392b"/>
+    </marker>
+  </defs>
+
+  <text x="350" y="24" font-size="17" font-weight="bold" text-anchor="middle" fill="#1a1a1a">SSRF: Borrowing the Server's Network Position</text>
+
+  <!-- Attacker box -->
+  <rect x="30" y="70" width="150" height="60" rx="6" fill="#fdecea" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="105" y="95" font-size="14" text-anchor="middle" fill="#1a1a1a" font-weight="bold">ATTACKER</text>
+  <text x="105" y="113" font-size="12" text-anchor="middle" fill="#1a1a1a">(your machine)</text>
+
+  <!-- Direct attempt, blocked -->
+  <line x1="180" y1="100" x2="480" y2="260" stroke="#c0392b" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#arrowRed)"/>
+  <text x="300" y="165" font-size="13" fill="#c0392b" text-anchor="middle">1. direct curl --&gt; CONNECTION REFUSED</text>
+
+  <!-- vulnerable-app box -->
+  <rect x="260" y="180" width="180" height="70" rx="6" fill="#f2f4f7" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="350" y="205" font-size="14" text-anchor="middle" fill="#1a1a1a" font-weight="bold">vulnerable-app</text>
+  <text x="350" y="223" font-size="12" text-anchor="middle" fill="#1a1a1a">port 5000 published</text>
+  <text x="350" y="239" font-size="12" text-anchor="middle" fill="#1a1a1a">requests.get(url)</text>
+
+  <!-- attacker to vulnerable-app, succeeds -->
+  <line x1="180" y1="110" x2="270" y2="190" stroke="#2b2b2b" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="170" y="155" font-size="13" fill="#1a1a1a" text-anchor="middle">2. preview?url=</text>
+  <text x="170" y="170" font-size="13" fill="#1a1a1a" text-anchor="middle">internal-service...</text>
+
+  <!-- internal-service box -->
+  <rect x="490" y="180" width="180" height="70" rx="6" fill="#fdecea" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="580" y="205" font-size="14" text-anchor="middle" fill="#1a1a1a" font-weight="bold">internal-service</text>
+  <text x="580" y="223" font-size="12" text-anchor="middle" fill="#1a1a1a">NO published port</text>
+  <text x="580" y="239" font-size="12" text-anchor="middle" fill="#1a1a1a">fake IAM credentials</text>
+
+  <!-- vulnerable-app to internal-service, succeeds -->
+  <line x1="440" y1="215" x2="485" y2="215" stroke="#2b2b2b" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="463" y="205" font-size="12" fill="#1a1a1a" text-anchor="middle">3.</text>
+
+  <!-- response path back -->
+  <line x1="580" y1="250" x2="580" y2="300" stroke="#2b2b2b" stroke-width="2"/>
+  <line x1="580" y1="300" x2="350" y2="300" stroke="#2b2b2b" stroke-width="2"/>
+  <line x1="350" y1="300" x2="350" y2="255" stroke="#2b2b2b" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="465" y="318" font-size="12" fill="#1a1a1a" text-anchor="middle">4. credentials returned to vulnerable-app</text>
+
+  <line x1="260" y1="215" x2="185" y2="130" stroke="#2b2b2b" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="200" y="195" font-size="12" fill="#1a1a1a" text-anchor="middle">5. credentials</text>
+  <text x="200" y="209" font-size="12" fill="#1a1a1a" text-anchor="middle">shown to attacker</text>
+
+  <!-- network boundary -->
+  <rect x="245" y="165" width="440" height="100" rx="6" fill="none" stroke="#2b2b2b" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <text x="465" y="280" font-size="12" fill="#1a1a1a" text-anchor="middle" font-style="italic">isolated Docker network: ssrf-lab-net</text>
+
+  <text x="350" y="370" font-size="13" text-anchor="middle" fill="#1a1a1a">Attacker cannot cross the network boundary directly (step 1).</text>
+  <text x="350" y="390" font-size="13" text-anchor="middle" fill="#1a1a1a">But vulnerable-app is already inside it — so the attacker routes the request through it instead.</text>
+</svg>

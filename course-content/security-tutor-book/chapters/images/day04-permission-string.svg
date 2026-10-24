@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 260" font-family="Helvetica, Arial, sans-serif">
+  <text x="350" y="26" font-size="18" font-weight="bold" text-anchor="middle" fill="#1a1a1a">Reading a Permission String: rwxr--r-- = 744</text>
+
+  <rect x="60" y="55" width="180" height="60" fill="#eafaf1" stroke="#1e8449" stroke-width="1.5"/>
+  <text x="150" y="78" font-size="15" text-anchor="middle" fill="#1a1a1a">rwx</text>
+  <text x="150" y="98" font-size="12" text-anchor="middle" fill="#555">Owner — read, write, execute</text>
+
+  <rect x="240" y="55" width="150" height="60" fill="#f2f4f7" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="315" y="78" font-size="15" text-anchor="middle" fill="#1a1a1a">r--</text>
+  <text x="315" y="98" font-size="12" text-anchor="middle" fill="#555">Group — read only</text>
+
+  <rect x="390" y="55" width="150" height="60" fill="#f2f4f7" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="465" y="78" font-size="15" text-anchor="middle" fill="#1a1a1a">r--</text>
+  <text x="465" y="98" font-size="12" text-anchor="middle" fill="#555">Other — read only</text>
+
+  <text x="150" y="150" font-size="13" text-anchor="middle" fill="#1a1a1a">4+2+1 = 7</text>
+  <text x="315" y="150" font-size="13" text-anchor="middle" fill="#1a1a1a">4+0+0 = 4</text>
+  <text x="465" y="150" font-size="13" text-anchor="middle" fill="#1a1a1a">4+0+0 = 4</text>
+
+  <text x="350" y="190" font-size="14" font-weight="bold" text-anchor="middle" fill="#1a1a1a">chmod 744</text>
+  <text x="350" y="212" font-size="12" text-anchor="middle" fill="#555">read=4, write=2, execute=1 — add the bits you grant, per group</text>
+  <text x="350" y="234" font-size="12" text-anchor="middle" fill="#c0392b">A .txt file with an execute bit set, or chmod 777 on anything sensitive, is a red flag.</text>
+</svg>

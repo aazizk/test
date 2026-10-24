@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 430" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#2b2b2b"/>
+    </marker>
+  </defs>
+  <text x="360" y="24" font-size="17" font-weight="bold" text-anchor="middle" fill="#1a1a1a">Reflected vs. Stored XSS</text>
+
+  <!-- Reflected row -->
+  <text x="20" y="58" font-size="15" font-weight="bold" fill="#1a1a1a">REFLECTED</text>
+  <rect x="20" y="70" width="140" height="55" rx="6" fill="#fdecea" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="90" y="92" font-size="13" text-anchor="middle" fill="#1a1a1a">ATTACKER crafts</text>
+  <text x="90" y="110" font-size="13" text-anchor="middle" fill="#1a1a1a">/search?q=&lt;script&gt;</text>
+
+  <line x1="160" y1="97" x2="230" y2="97" stroke="#2b2b2b" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="195" y="88" font-size="11" text-anchor="middle" fill="#1a1a1a">sends link</text>
+
+  <rect x="230" y="70" width="140" height="55" rx="6" fill="#f2f4f7" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="300" y="92" font-size="13" text-anchor="middle" fill="#1a1a1a">VICTIM clicks</text>
+  <text x="300" y="110" font-size="13" text-anchor="middle" fill="#1a1a1a">the crafted link</text>
+
+  <line x1="370" y1="97" x2="440" y2="97" stroke="#2b2b2b" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="405" y="88" font-size="11" text-anchor="middle" fill="#1a1a1a">request</text>
+
+  <rect x="440" y="70" width="130" height="55" rx="6" fill="#f2f4f7" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="505" y="92" font-size="13" text-anchor="middle" fill="#1a1a1a">SERVER echoes</text>
+  <text x="505" y="110" font-size="13" text-anchor="middle" fill="#1a1a1a">q unescaped</text>
+
+  <line x1="570" y1="97" x2="640" y2="97" stroke="#2b2b2b" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="580" y="70" width="0" height="0"/>
+  <text x="675" y="92" font-size="13" text-anchor="middle" fill="#c0392b" font-weight="bold">script</text>
+  <text x="675" y="110" font-size="13" text-anchor="middle" fill="#c0392b" font-weight="bold">runs once</text>
+
+  <text x="20" y="150" font-size="12" fill="#1a1a1a">Scope: one victim, one click, nothing persists after the response.</text>
+
+  <!-- divider -->
+  <line x1="20" y1="170" x2="700" y2="170" stroke="#999" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <!-- Stored row -->
+  <text x="20" y="200" font-size="15" font-weight="bold" fill="#1a1a1a">STORED</text>
+  <rect x="20" y="212" width="140" height="55" rx="6" fill="#fdecea" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="90" y="234" font-size="13" text-anchor="middle" fill="#1a1a1a">ATTACKER submits</text>
+  <text x="90" y="252" font-size="13" text-anchor="middle" fill="#1a1a1a">&lt;script&gt; as a comment</text>
+
+  <line x1="160" y1="239" x2="230" y2="239" stroke="#2b2b2b" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="195" y="230" font-size="11" text-anchor="middle" fill="#1a1a1a">once</text>
+
+  <rect x="230" y="212" width="140" height="55" rx="6" fill="#f2f4f7" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="300" y="234" font-size="13" text-anchor="middle" fill="#1a1a1a">SERVER stores it</text>
+  <text x="300" y="252" font-size="13" text-anchor="middle" fill="#1a1a1a">in the comments list</text>
+
+  <line x1="300" y1="267" x2="300" y2="310" stroke="#2b2b2b" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="150" y="310" width="300" height="55" rx="6" fill="#f2f4f7" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="300" y="332" font-size="13" text-anchor="middle" fill="#1a1a1a">EVERY future visitor to /guestbook</text>
+  <text x="300" y="350" font-size="13" text-anchor="middle" fill="#1a1a1a">(no special link needed, even incognito)</text>
+
+  <line x1="450" y1="337" x2="540" y2="337" stroke="#2b2b2b" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <text x="600" y="330" font-size="13" text-anchor="middle" fill="#c0392b" font-weight="bold">script runs</text>
+  <text x="600" y="348" font-size="13" text-anchor="middle" fill="#c0392b" font-weight="bold">every time</text>
+
+  <text x="20" y="400" font-size="12" fill="#1a1a1a">Scope: every visitor, indefinitely, via an ordinary unmodified URL — one-to-many, not one-to-one.</text>
+</svg>

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 420" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow2" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#2b2b2b"/>
+    </marker>
+  </defs>
+  <text x="350" y="26" font-size="18" font-weight="bold" text-anchor="middle" fill="#1a1a1a">Local Delivery vs. Routing: The Per-Packet Decision</text>
+
+  <rect x="260" y="50" width="180" height="50" rx="6" fill="#f2f4f7" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="350" y="80" font-size="13" text-anchor="middle" fill="#1a1a1a">Outgoing packet</text>
+
+  <line x1="350" y1="100" x2="350" y2="135" stroke="#2b2b2b" stroke-width="2" marker-end="url(#arrow2)"/>
+
+  <!-- decision diamond -->
+  <polygon points="350,135 460,185 350,235 240,185" fill="#f2f4f7" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="350" y="180" font-size="12" text-anchor="middle" fill="#1a1a1a">Is destination in</text>
+  <text x="350" y="196" font-size="12" text-anchor="middle" fill="#1a1a1a">my local subnet?</text>
+
+  <!-- Yes branch -->
+  <line x1="260" y1="200" x2="140" y2="260" stroke="#2b2b2b" stroke-width="2" marker-end="url(#arrow2)"/>
+  <text x="175" y="222" font-size="12" fill="#1a1a1a">yes</text>
+  <rect x="40" y="260" width="200" height="55" rx="6" fill="#eafaf1" stroke="#1e8449" stroke-width="1.5"/>
+  <text x="140" y="282" font-size="13" text-anchor="middle" fill="#1a1a1a">ARP: resolve IP → MAC</text>
+  <text x="140" y="300" font-size="13" text-anchor="middle" fill="#1a1a1a">Deliver directly on segment</text>
+
+  <!-- No branch -->
+  <line x1="440" y1="200" x2="560" y2="260" stroke="#2b2b2b" stroke-width="2" marker-end="url(#arrow2)"/>
+  <text x="520" y="222" font-size="12" fill="#1a1a1a">no</text>
+  <rect x="460" y="260" width="200" height="55" rx="6" fill="#f2f4f7" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="560" y="282" font-size="13" text-anchor="middle" fill="#1a1a1a">Send to default gateway</text>
+  <text x="560" y="300" font-size="13" text-anchor="middle" fill="#1a1a1a">(the router)</text>
+
+  <line x1="560" y1="315" x2="560" y2="345" stroke="#2b2b2b" stroke-width="2" marker-end="url(#arrow2)"/>
+  <rect x="440" y="345" width="240" height="55" rx="6" fill="#f2f4f7" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="560" y="367" font-size="13" text-anchor="middle" fill="#1a1a1a">Router: longest-prefix match</text>
+  <text x="560" y="385" font-size="12" text-anchor="middle" fill="#555">falls back to 0.0.0.0/0 if nothing else matches</text>
+</svg>

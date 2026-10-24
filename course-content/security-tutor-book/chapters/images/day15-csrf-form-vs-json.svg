@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 440" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#2b2b2b"/>
+    </marker>
+    <marker id="arrow-red" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#c0392b"/>
+    </marker>
+  </defs>
+  <text x="360" y="24" font-size="17" font-weight="bold" text-anchor="middle" fill="#1a1a1a">CSRF: Form Attack Succeeds, JSON Attack Blocked by CORS</text>
+
+  <!-- Attack 1 row -->
+  <text x="20" y="56" font-size="15" font-weight="bold" fill="#1a1a1a">ATTACK 1 — plain HTML form</text>
+
+  <rect x="20" y="68" width="140" height="55" rx="6" fill="#fdecea" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="90" y="90" font-size="13" text-anchor="middle" fill="#1a1a1a">VICTIM loads</text>
+  <text x="90" y="108" font-size="13" text-anchor="middle" fill="#1a1a1a">evil.com page</text>
+
+  <line x1="160" y1="95" x2="240" y2="95" stroke="#2b2b2b" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="200" y="86" font-size="11" text-anchor="middle" fill="#1a1a1a">auto-submit</text>
+
+  <rect x="240" y="68" width="150" height="55" rx="6" fill="#f2f4f7" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="315" y="86" font-size="12" text-anchor="middle" fill="#1a1a1a">POST /change-email</text>
+  <text x="315" y="104" font-size="11" text-anchor="middle" fill="#1a1a1a">cookie attached auto.</text>
+
+  <line x1="390" y1="95" x2="460" y2="95" stroke="#2b2b2b" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="460" y="68" width="150" height="55" rx="6" fill="#fdecea" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="535" y="86" font-size="12" text-anchor="middle" fill="#1a1a1a" font-weight="bold">bank server: 200 OK</text>
+  <text x="535" y="104" font-size="11" text-anchor="middle" fill="#1a1a1a">no origin check done</text>
+
+  <text x="20" y="148" font-size="12" fill="#1a1a1a">No CORS check applies — this is a normal form submission, not a cross-origin fetch().</text>
+  <text x="20" y="166" font-size="12" fill="#c0392b" font-weight="bold">Result: email changed to attacker@evil.com</text>
+
+  <line x1="20" y1="188" x2="700" y2="188" stroke="#999" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <!-- Attack 2 row -->
+  <text x="20" y="218" font-size="15" font-weight="bold" fill="#1a1a1a">ATTACK 2 — fetch() with Content-Type: application/json</text>
+
+  <rect x="20" y="230" width="140" height="55" rx="6" fill="#fdecea" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="90" y="252" font-size="13" text-anchor="middle" fill="#1a1a1a">evil.com JS runs</text>
+  <text x="90" y="270" font-size="13" text-anchor="middle" fill="#1a1a1a">fetch(credentials:'include')</text>
+
+  <line x1="160" y1="257" x2="240" y2="257" stroke="#2b2b2b" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="200" y="248" font-size="11" text-anchor="middle" fill="#1a1a1a">preflight</text>
+
+  <rect x="240" y="230" width="150" height="55" rx="6" fill="#f2f4f7" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="315" y="248" font-size="12" text-anchor="middle" fill="#1a1a1a">OPTIONS request</text>
+  <text x="315" y="266" font-size="11" text-anchor="middle" fill="#1a1a1a">"may evil.com POST json?"</text>
+
+  <line x1="390" y1="257" x2="460" y2="257" stroke="#2b2b2b" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="460" y="230" width="150" height="55" rx="6" fill="#f2f4f7" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="535" y="248" font-size="12" text-anchor="middle" fill="#1a1a1a">server replies 200</text>
+  <text x="535" y="266" font-size="11" text-anchor="middle" fill="#1a1a1a">NO Allow-Origin header</text>
+
+  <line x1="535" y1="285" x2="535" y2="330" stroke="#c0392b" stroke-width="2" marker-end="url(#arrow-red)"/>
+
+  <rect x="430" y="330" width="210" height="55" rx="6" fill="#eafaf1" stroke="#1e8449" stroke-width="1.5"/>
+  <text x="535" y="352" font-size="12" text-anchor="middle" fill="#1a1a1a" font-weight="bold">BROWSER blocks real POST</text>
+  <text x="535" y="370" font-size="11" text-anchor="middle" fill="#1a1a1a">CORS error — request never sent</text>
+
+  <text x="20" y="352" font-size="12" fill="#1a1a1a">200 on the preflight is not permission — the browser reads the</text>
+  <text x="20" y="370" font-size="12" fill="#1a1a1a">response headers, not the status code, to decide whether to proceed.</text>
+  <text x="20" y="400" font-size="12" fill="#1e8449" font-weight="bold">Result: email NOT changed by this path (still blocked, not "safe by design")</text>
+</svg>

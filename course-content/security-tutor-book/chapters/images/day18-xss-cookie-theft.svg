@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#2b2b2b"/>
+    </marker>
+  </defs>
+  <text x="360" y="24" font-size="17" font-weight="bold" text-anchor="middle" fill="#1a1a1a">Session Hijacking via Stored XSS</text>
+
+  <!-- Attacker -->
+  <rect x="20" y="60" width="160" height="60" rx="6" fill="#fdecea" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="100" y="86" font-size="14" text-anchor="middle" fill="#1a1a1a">ATTACKER</text>
+  <text x="100" y="104" font-size="12" text-anchor="middle" fill="#1a1a1a">submits XSS payload once</text>
+
+  <!-- Guestbook / server -->
+  <rect x="280" y="60" width="160" height="60" rx="6" fill="#f2f4f7" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="360" y="86" font-size="14" text-anchor="middle" fill="#1a1a1a">VULNERABLE APP</text>
+  <text x="360" y="104" font-size="12" text-anchor="middle" fill="#1a1a1a">stores payload (guestbook)</text>
+
+  <line x1="180" y1="90" x2="280" y2="90" stroke="#2b2b2b" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="230" y="80" font-size="11" text-anchor="middle" fill="#1a1a1a">1. POST payload</text>
+
+  <!-- Victim -->
+  <rect x="280" y="170" width="160" height="60" rx="6" fill="#f2f4f7" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="360" y="196" font-size="14" text-anchor="middle" fill="#1a1a1a">VICTIM BROWSER</text>
+  <text x="360" y="214" font-size="12" text-anchor="middle" fill="#1a1a1a">logged in, loads page</text>
+
+  <line x1="360" y1="170" x2="360" y2="120" stroke="#2b2b2b" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="440" y="148" font-size="11" text-anchor="middle" fill="#1a1a1a">2. page loads,</text>
+  <text x="440" y="162" font-size="11" text-anchor="middle" fill="#1a1a1a">payload runs</text>
+
+  <!-- Attacker collector -->
+  <rect x="540" y="170" width="160" height="60" rx="6" fill="#fdecea" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="620" y="196" font-size="14" text-anchor="middle" fill="#1a1a1a">ATTACKER COLLECTOR</text>
+  <text x="620" y="214" font-size="12" text-anchor="middle" fill="#1a1a1a">receives document.cookie</text>
+
+  <line x1="440" y1="200" x2="540" y2="200" stroke="#2b2b2b" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="490" y="190" font-size="11" text-anchor="middle" fill="#1a1a1a">3. fetch(cookie)</text>
+
+  <!-- Reuse step -->
+  <rect x="280" y="280" width="160" height="60" rx="6" fill="#fdecea" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="360" y="306" font-size="14" text-anchor="middle" fill="#1a1a1a">ATTACKER (new context)</text>
+  <text x="360" y="324" font-size="12" text-anchor="middle" fill="#1a1a1a">curl --cookie stolen_id</text>
+
+  <line x1="620" y1="230" x2="440" y2="300" stroke="#2b2b2b" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="560" y="265" font-size="11" text-anchor="middle" fill="#1a1a1a">4. reuse cookie,</text>
+  <text x="560" y="279" font-size="11" text-anchor="middle" fill="#1a1a1a">no password needed</text>
+
+  <text x="360" y="352" font-size="12" text-anchor="middle" fill="#1a1a1a">Fix: HttpOnly blocks step 3's document.cookie read — the payload still runs, the cookie no longer leaks.</text>
+</svg>

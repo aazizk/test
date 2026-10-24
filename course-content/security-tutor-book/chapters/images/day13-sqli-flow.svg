@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow13" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#2b2b2b"/>
+    </marker>
+  </defs>
+  <text x="360" y="26" font-size="18" font-weight="bold" text-anchor="middle" fill="#1a1a1a">SQL Injection: admin' -- Login Bypass</text>
+
+  <text x="90" y="52" font-size="13" font-weight="bold" text-anchor="middle" fill="#1a1a1a">Attacker</text>
+  <text x="360" y="52" font-size="13" font-weight="bold" text-anchor="middle" fill="#1a1a1a">App (string-built query)</text>
+  <text x="630" y="52" font-size="13" font-weight="bold" text-anchor="middle" fill="#1a1a1a">Database</text>
+  <line x1="90" y1="60" x2="90" y2="340" stroke="#bbb" stroke-width="1"/>
+  <line x1="360" y1="60" x2="360" y2="340" stroke="#bbb" stroke-width="1"/>
+  <line x1="630" y1="60" x2="630" y2="340" stroke="#bbb" stroke-width="1"/>
+
+  <line x1="90" y1="90" x2="352" y2="90" stroke="#c0392b" stroke-width="2" marker-end="url(#arrow13)"/>
+  <text x="225" y="83" font-size="11" text-anchor="middle" fill="#c0392b">username: admin' --    password: anything</text>
+
+  <rect x="140" y="100" width="440" height="55" rx="6" fill="#fdecea" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="360" y="120" font-size="10" font-family="monospace" text-anchor="middle" fill="#1a1a1a">SELECT * FROM users WHERE username='admin' --' AND password='...'</text>
+  <text x="360" y="140" font-size="11" font-weight="bold" text-anchor="middle" fill="#c0392b">-- comments out the rest: password check never runs</text>
+
+  <line x1="360" y1="160" x2="622" y2="160" stroke="#2b2b2b" stroke-width="2" marker-end="url(#arrow13)"/>
+  <text x="495" y="153" font-size="11" text-anchor="middle" fill="#1a1a1a">query sent as-is to the database</text>
+
+  <line x1="630" y1="185" x2="368" y2="185" stroke="#2b2b2b" stroke-width="2" marker-end="url(#arrow13)"/>
+  <text x="495" y="178" font-size="11" text-anchor="middle" fill="#1a1a1a">returns admin's row — no password matched, none was checked</text>
+
+  <line x1="360" y1="205" x2="98" y2="205" stroke="#c0392b" stroke-width="2" marker-end="url(#arrow13)"/>
+  <text x="225" y="220" font-size="11" font-weight="bold" text-anchor="middle" fill="#c0392b">"Login successful. Welcome admin."</text>
+
+  <!-- fix box -->
+  <rect x="110" y="250" width="500" height="100" rx="6" fill="#eafaf1" stroke="#1e8449" stroke-width="1.5"/>
+  <text x="360" y="272" font-size="12" font-weight="bold" text-anchor="middle" fill="#1a1a1a">Fix: parameterized query (prepared statement)</text>
+  <text x="360" y="292" font-size="10" font-family="monospace" text-anchor="middle" fill="#1a1a1a">SELECT * FROM users WHERE username=? AND password=?</text>
+  <text x="360" y="312" font-size="11" text-anchor="middle" fill="#1a1a1a">Query structure is compiled before input is seen.</text>
+  <text x="360" y="330" font-size="11" font-weight="bold" text-anchor="middle" fill="#1e8449">admin' -- is treated as a literal string, not code. Login fails (401).</text>
+</svg>

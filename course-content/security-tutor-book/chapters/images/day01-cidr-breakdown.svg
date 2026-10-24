@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 320" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#2b2b2b"/>
+    </marker>
+  </defs>
+  <text x="350" y="26" font-size="18" font-weight="bold" text-anchor="middle" fill="#1a1a1a">CIDR: 192.168.1.0/24 — Network Bits vs Host Bits</text>
+
+  <!-- 32-bit address bar -->
+  <rect x="40" y="55" width="480" height="40" fill="#f2f4f7" stroke="#2b2b2b" stroke-width="1.5"/>
+  <rect x="40" y="55" width="480" height="40" fill="none" stroke="#2b2b2b" stroke-width="1.5"/>
+  <line x1="400" y1="55" x2="400" y2="95" stroke="#2b2b2b" stroke-width="2"/>
+  <text x="220" y="80" font-size="14" text-anchor="middle" fill="#1a1a1a">Network portion — 24 bits (fixed)</text>
+  <text x="460" y="80" font-size="14" text-anchor="middle" fill="#1a1a1a">Host — 8 bits</text>
+  <text x="40" y="112" font-size="12" fill="#555">/24 = first 24 bits are network bits</text>
+  <text x="400" y="112" font-size="12" fill="#555" text-anchor="end">256 possible host values (0-255)</text>
+
+  <!-- three result boxes -->
+  <rect x="40" y="150" width="190" height="70" rx="6" fill="#fdecea" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="135" y="175" font-size="13" font-weight="bold" text-anchor="middle" fill="#1a1a1a">Network address</text>
+  <text x="135" y="195" font-size="13" text-anchor="middle" fill="#1a1a1a">192.168.1.0</text>
+  <text x="135" y="212" font-size="11" text-anchor="middle" fill="#555">reserved, never assigned</text>
+
+  <rect x="255" y="150" width="190" height="70" rx="6" fill="#eafaf1" stroke="#1e8449" stroke-width="1.5"/>
+  <text x="350" y="175" font-size="13" font-weight="bold" text-anchor="middle" fill="#1a1a1a">Usable host range</text>
+  <text x="350" y="195" font-size="13" text-anchor="middle" fill="#1a1a1a">192.168.1.1 – .254</text>
+  <text x="350" y="212" font-size="11" text-anchor="middle" fill="#555">254 assignable addresses</text>
+
+  <rect x="470" y="150" width="190" height="70" rx="6" fill="#fdecea" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="565" y="175" font-size="13" font-weight="bold" text-anchor="middle" fill="#1a1a1a">Broadcast address</text>
+  <text x="565" y="195" font-size="13" text-anchor="middle" fill="#1a1a1a">192.168.1.255</text>
+  <text x="565" y="212" font-size="11" text-anchor="middle" fill="#555">reserved, never assigned</text>
+
+  <line x1="135" y1="95" x2="135" y2="150" stroke="#2b2b2b" stroke-width="1.5" marker-end="url(#arrow)" stroke-dasharray="4,3"/>
+  <line x1="350" y1="95" x2="350" y2="150" stroke="#2b2b2b" stroke-width="1.5" marker-end="url(#arrow)" stroke-dasharray="4,3"/>
+  <line x1="565" y1="95" x2="565" y2="150" stroke="#2b2b2b" stroke-width="1.5" marker-end="url(#arrow)" stroke-dasharray="4,3"/>
+
+  <text x="350" y="260" font-size="13" text-anchor="middle" fill="#1a1a1a">Total addresses in a /24 = 256. Usable = 256 − 2 (network + broadcast) = 254.</text>
+  <text x="350" y="285" font-size="12" text-anchor="middle" fill="#555">Shrink the host bits (a /26, a /28, …) and this same math shrinks the usable range fast.</text>
+</svg>
