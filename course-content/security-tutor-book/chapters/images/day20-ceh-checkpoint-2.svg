@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 560" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#2b2b2b"/>
+    </marker>
+  </defs>
+
+  <text x="360" y="24" font-size="17" font-weight="bold" text-anchor="middle" fill="#1a1a1a">Checkpoint #2: Two Signals Worth Re-Learning</text>
+
+  <!-- Panel 1: nmap closed vs filtered -->
+  <text x="360" y="54" font-size="15" font-weight="bold" text-anchor="middle" fill="#1a1a1a">nmap: closed vs. filtered</text>
+
+  <rect x="40" y="70" width="140" height="44" rx="6" fill="#f2f4f7" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="110" y="97" font-size="13" text-anchor="middle" fill="#1a1a1a">nmap probe (SYN)</text>
+
+  <line x1="180" y1="92" x2="260" y2="92" stroke="#2b2b2b" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="260" y="70" width="170" height="44" rx="6" fill="#eafaf1" stroke="#1e8449" stroke-width="1.5"/>
+  <text x="345" y="90" font-size="13" text-anchor="middle" fill="#1a1a1a">Host replies: RST</text>
+  <text x="345" y="106" font-size="12" text-anchor="middle" fill="#1a1a1a">= CLOSED (reachable, nothing listening)</text>
+
+  <rect x="40" y="130" width="140" height="44" rx="6" fill="#f2f4f7" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="110" y="157" font-size="13" text-anchor="middle" fill="#1a1a1a">nmap probe (SYN)</text>
+
+  <line x1="180" y1="152" x2="260" y2="152" stroke="#2b2b2b" stroke-width="2" stroke-dasharray="5,4" marker-end="url(#arrow)"/>
+  <text x="220" y="145" font-size="11" text-anchor="middle" fill="#c0392b">dropped</text>
+
+  <rect x="260" y="130" width="170" height="44" rx="6" fill="#fdecea" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="345" y="150" font-size="13" text-anchor="middle" fill="#1a1a1a">No reply at all</text>
+  <text x="345" y="166" font-size="12" text-anchor="middle" fill="#1a1a1a">= FILTERED (firewall, or just silence)</text>
+
+  <text x="470" y="150" font-size="12" fill="#1a1a1a" text-anchor="start">Not the same as an HTTP 404 —</text>
+  <text x="470" y="166" font-size="12" fill="#1a1a1a" text-anchor="start">404 means the server DID answer.</text>
+
+  <!-- Divider -->
+  <line x1="40" y1="200" x2="680" y2="200" stroke="#cccccc" stroke-width="1"/>
+
+  <!-- Panel 2: SameSite=Lax -->
+  <text x="360" y="230" font-size="15" font-weight="bold" text-anchor="middle" fill="#1a1a1a">SameSite=Lax: top-level navigation, not GET-vs-POST</text>
+
+  <rect x="40" y="250" width="180" height="50" rx="6" fill="#eafaf1" stroke="#1e8449" stroke-width="1.5"/>
+  <text x="130" y="272" font-size="13" text-anchor="middle" fill="#1a1a1a">User clicks a link</text>
+  <text x="130" y="289" font-size="12" text-anchor="middle" fill="#1a1a1a">GET, address bar changes</text>
+
+  <line x1="220" y1="275" x2="300" y2="275" stroke="#2b2b2b" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="300" y="250" width="150" height="50" rx="6" fill="#eafaf1" stroke="#1e8449" stroke-width="1.5"/>
+  <text x="375" y="272" font-size="13" text-anchor="middle" fill="#1a1a1a">Top-level nav: YES</text>
+  <text x="375" y="289" font-size="12" text-anchor="middle" fill="#1a1a1a">Cookie attached</text>
+
+  <rect x="40" y="320" width="180" height="50" rx="6" fill="#fdecea" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="130" y="342" font-size="13" text-anchor="middle" fill="#1a1a1a">Attacker's page: &lt;img&gt;</text>
+  <text x="130" y="359" font-size="12" text-anchor="middle" fill="#1a1a1a">also GET — loads in background</text>
+
+  <line x1="220" y1="345" x2="300" y2="345" stroke="#2b2b2b" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="300" y="320" width="150" height="50" rx="6" fill="#fdecea" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="375" y="342" font-size="13" text-anchor="middle" fill="#1a1a1a">Top-level nav: NO</text>
+  <text x="375" y="359" font-size="12" text-anchor="middle" fill="#1a1a1a">Cookie withheld</text>
+
+  <rect x="40" y="390" width="180" height="50" rx="6" fill="#fdecea" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="130" y="412" font-size="13" text-anchor="middle" fill="#1a1a1a">Hidden auto-submit form</text>
+  <text x="130" y="429" font-size="12" text-anchor="middle" fill="#1a1a1a">POST — fails method check</text>
+
+  <line x1="220" y1="415" x2="300" y2="415" stroke="#2b2b2b" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="300" y="390" width="150" height="50" rx="6" fill="#fdecea" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="375" y="412" font-size="13" text-anchor="middle" fill="#1a1a1a">Method: unsafe</text>
+  <text x="375" y="429" font-size="12" text-anchor="middle" fill="#1a1a1a">Cookie withheld</text>
+
+  <text x="470" y="275" font-size="12" fill="#1a1a1a" text-anchor="start">Lax needs BOTH:</text>
+  <text x="470" y="291" font-size="12" fill="#1a1a1a" text-anchor="start">1) safe method (GET/HEAD)</text>
+  <text x="470" y="307" font-size="12" fill="#1a1a1a" text-anchor="start">2) top-level navigation</text>
+  <text x="470" y="340" font-size="12" fill="#1a1a1a" text-anchor="start">img/iframe/fetch pass (1)</text>
+  <text x="470" y="356" font-size="12" fill="#1a1a1a" text-anchor="start">but fail (2) — still blocked</text>
+
+  <text x="360" y="470" font-size="13" font-weight="bold" text-anchor="middle" fill="#1a1a1a">The outcome (POST blocked, link-click GET allowed) was memorized correctly.</text>
+  <text x="360" y="490" font-size="13" font-weight="bold" text-anchor="middle" fill="#1a1a1a">The mechanism behind it (navigation, not method-purpose) had to be re-taught.</text>
+</svg>
