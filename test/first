@@ -1,16 +1,14 @@
-Overview
-Last updated on September 23, 2026. View changes 
+Introduction
+Nebius AI looks forward to working with the security community to find vulnerabilities and keep our businesses and customers safe.
 
-Disclosure Policy
-Please do not discuss this program or any vulnerabilities (even resolved ones) outside of the program without express consent from the organization.
-Follow HackerOne's disclosure guidelines.
-Program Rules
-Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue may not be marked as triaged.
-Submit one vulnerability per report unless you need to chain vulnerabilities to provide impact.
-When duplicates occur, we only triage the first report received (provided that it can be fully reproduced).
-Only interact with accounts you own or with explicit permission of the account holder.
-Social engineering (e.g. phishing, vishing, smishing) is prohibited.
-Session Layer: HTTP Headers
-Researchers should add headers to requests such as:
-“X-HackerOne-Research: [H1 username]”
-Thank you for helping keep Nebius AI and our users safe!
+Program highlights
+Open Scope
+Accepts reports for all owned assets based on impact, even if not listed in scope. 
+Gold Standard Safe Harbor
+Adheres to Gold Standard Safe Harbor. 
+AI Research Safe Harbor
+Adheres to AI Research Safe Harbor. 
+Coordinated Vulnerability Disclosure
+Standard 
+Signal Requirement
+0.0 or higher past-year Signal required, with use of trial reports for hackers below it.
