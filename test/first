@@ -1,14 +1,209 @@
-Introduction
-Nebius AI looks forward to working with the security community to find vulnerabilities and keep our businesses and customers safe.
-
-Program highlights
-Open Scope
-Accepts reports for all owned assets based on impact, even if not listed in scope. 
-Gold Standard Safe Harbor
-Adheres to Gold Standard Safe Harbor. 
-AI Research Safe Harbor
-Adheres to AI Research Safe Harbor. 
-Coordinated Vulnerability Disclosure
-Standard 
-Signal Requirement
-0.0 or higher past-year Signal required, with use of trial reports for hackers below it.
+Asset name
+Type
+Coverage
+Max. severity
+Bounty
+Last update
+Resolved Reports 
+tokenfactory.nebius.com
+Out of scope:
+Anything under:
+testing.*,
+staging.*,
+preprod.*,
+beta.*,
+gamma.*,
+omega.*,
+sandbox.*,
+preview.*,
+trunk.*,
+dev.*.
+Domain	
+Critical
+Ineligible
+Sep 17, 2026
+0 (-)
+sts.nebius.com	Domain	
+Critical
+Ineligible
+Sep 17, 2026
+0 (-)
+status.nebius.com	Domain	
+Critical
+Ineligible
+Sep 17, 2026
+0 (-)
+static.nebius.com	Domain	
+Critical
+Ineligible
+Sep 17, 2026
+0 (-)
+https://github.com/nebius/terraform-provider-nebius	Source code	
+Critical
+Ineligible
+Sep 17, 2026
+0 (-)
+https://github.com/nebius/pysdk	Source code	
+Critical
+Ineligible
+Sep 17, 2026
+0 (-)
+https://github.com/nebius/nebius-observability-agent-updater	Source code	
+Critical
+Ineligible
+Sep 17, 2026
+0 (-)
+https://github.com/nebius/js-sdk	Source code	
+Critical
+Ineligible
+Sep 17, 2026
+0 (-)
+https://github.com/nebius/gosdk	Source code	
+Critical
+Ineligible
+Sep 17, 2026
+0 (-)
+console.nebius.com
+In Scope
+Only Nebius Generally Available (GA) services described here.
+Out of scope:
+Anything under:
+testing.*,
+staging.*,
+preprod.*,
+beta.*,
+gamma.*,
+omega.*,
+sandbox.*,
+preview.*,
+trunk.*,
+dev.*.
+Domain	
+Critical
+Ineligible
+Sep 17, 2026
+0 (-)
+console.eu.nebius.com
+In Scope
+Only Nebius Generally Available (GA) services described here.
+Out of scope:
+Anything under:
+testing.*,
+staging.*,
+preprod.*,
+beta.*,
+gamma.*,
+omega.*,
+sandbox.*,
+preview.*,
+trunk.*,
+dev.*.
+Domain	
+Critical
+Ineligible
+Sep 17, 2026
+0 (-)
+auth.tokenfactory.nebius.com
+Out of scope:
+Anything under:
+testing.*,
+staging.*,
+preprod.*,
+beta.*,
+gamma.*,
+omega.*,
+sandbox.*,
+preview.*,
+trunk.*,
+dev.*.
+Domain	
+Critical
+Ineligible
+Sep 17, 2026
+0 (-)
+auth.nebius.com
+Out of scope:
+Anything under:
+testing.*,
+staging.*,
+preprod.*,
+beta.*,
+gamma.*,
+omega.*,
+sandbox.*,
+preview.*,
+trunk.*,
+dev.*.
+Domain	
+Critical
+Ineligible
+Sep 17, 2026
+0 (-)
+assets.nebius.com	Domain	
+Critical
+Ineligible
+Sep 17, 2026
+0 (-)
+api.tokenfactory.nebius.com
+Out of scope:
+Anything under:
+testing.*,
+staging.*,
+preprod.*,
+beta.*,
+gamma.*,
+omega.*,
+sandbox.*,
+preview.*,
+trunk.*,
+dev.*.
+Domain	
+Critical
+Ineligible
+Sep 17, 2026
+0 (-)
+api.nebius.cloud
+In Scope
+Only Nebius Generally Available (GA) services described here.
+Out of scope:
+Anything under:
+testing.*,
+staging.*,
+preprod.*,
+beta.*,
+gamma.*,
+omega.*,
+sandbox.*,
+preview.*,
+trunk.*,
+dev.*.
+Domain	
+Critical
+Ineligible
+Sep 17, 2026
+0 (-)
+nebius.com	Domain	
+Medium
+Ineligible
+Sep 17, 2026
+0 (-)
+docs.tokenfactory.nebius.com	Domain	
+Medium
+Ineligible
+Sep 17, 2026
+0 (-)
+docs.nebius.com	Domain	
+Medium
+Ineligible
+Sep 17, 2026
+0 (-)
+dev.nebius.com	Domain	
+Medium
+Ineligible
+Sep 17, 2026
+0 (-)
+careers.nebius.com	Domain	
+Medium
+Ineligible
+Sep 17, 2026
+0 (-)
