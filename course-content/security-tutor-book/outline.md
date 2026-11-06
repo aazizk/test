@@ -1,8 +1,8 @@
 # Zero to CEH: A Hands-On Daily Security Journal — Outline
 
 **Course:** security-tutor
-**Last updated:** 2026-10-29
-**Chapters complete:** 22 of 22 taught days (Days 1-22)
+**Last updated:** 2026-11-06
+**Chapters complete:** 23 of 23 taught days (Days 1-23)
 **Export status:** not yet exported
 
 ## Chapter list
@@ -31,7 +31,8 @@
 | 20 | Chapter 20: Checkpoint — What Nine Days of Web Security Actually Stuck | chapters/day20-ceh-checkpoint-2.md | draft, good source fidelity | yes | CEH Checkpoint #2 (12 questions, Days 12-19 scope). nmap filtered-vs-closed missed a 3rd time; SameSite=Lax outcome memorized but top-level-navigation mechanism had to be re-taught; CSRF/SSRF, session fixation fix, origin-vs-site all confirmed solid. |
 | 21 | Chapter 21: Who You Are vs. What You Can Do — Opening Identity and Access Management | chapters/day21-authn-authz-privesc-credential-attacks.md | draft, good source fidelity | no | Phase 5 opens: authN vs authZ, vertical vs horizontal privilege escalation, credential attacks (brute force/dictionary/stuffing/spraying), MFA/SSO tradeoff. Pure concept session, no lab. |
 | 22 | Chapter 22: Cracking My Own Login — Dictionary Attacks, Backoff, and the Spraying Blind Spot | chapters/day22-credential-attack-lab.md | draft, good source fidelity | yes | Real lab (Docker, isolated network): dictionary attack cracks a complexity-compliant password in <1s undefended; exponential backoff applied and re-verified via timed re-run (31.7s); password spraying identified as the per-account-defense bypass; sleep-vs-reject/concurrency reasoning covered. |
-| 23+ | *(placeholder — not yet taught)* | — | not started | — | Candidates per progress.md: password-spraying hands-on lab (inverting Day 22's setup), Day 6 cron-privesc lab revisit, AAA framing, SSO protocol mechanics (SAML/OAuth/OIDC) — or remaining Phase 4 parking-lot items (UNION/blind SQLi, DOM XSS, SSRF denylist bypasses). |
+| 23 | Chapter 23: Spreading It Thin — How Password Spraying Beats a Working Lockout | chapters/day23-password-spraying.md | draft, good source fidelity | yes | Real lab (Docker, extends Day 22's directory): per-username backoff defeated by spraying 3 passwords x 10 usernames (2/10 compromised, undefended, <1s); per-source-IP defense built and reasoned through (~5-6 min estimated full-spray cost, capped-exponential magnitude mistake caught and corrected); NAT false-positive and botnet-evasion limits named. |
+| 24+ | *(placeholder — not yet taught)* | — | not started | — | CEH Checkpoint #3 now due (Chapters 21-23 scope). Candidates per progress.md: Day 6 cron-privesc lab revisit, AAA framing, SSO protocol mechanics (SAML/OAuth/OIDC) — or remaining Phase 4 parking-lot items (UNION/blind SQLi, DOM XSS, SSRF denylist bypasses). |
 
 ## Status legend
 

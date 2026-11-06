@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 360" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#2b2b2b"/>
+    </marker>
+  </defs>
+  <text x="370" y="24" font-size="17" font-weight="bold" text-anchor="middle" fill="#1a1a1a">FlawHub Attack Chain</text>
+
+  <rect x="20" y="50" width="160" height="80" rx="6" fill="#fdecea" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="100" y="78" font-size="13" font-weight="bold" text-anchor="middle" fill="#1a1a1a">STEP 1</text>
+  <text x="100" y="98" font-size="12" text-anchor="middle" fill="#1a1a1a">Malicious &lt;script&gt;</text>
+  <text x="100" y="114" font-size="12" text-anchor="middle" fill="#1a1a1a">in Markdown doc</text>
+
+  <line x1="180" y1="90" x2="220" y2="90" stroke="#2b2b2b" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="220" y="50" width="160" height="80" rx="6" fill="#fdecea" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="300" y="72" font-size="13" font-weight="bold" text-anchor="middle" fill="#1a1a1a">SSRF</text>
+  <text x="300" y="90" font-size="12" text-anchor="middle" fill="#1a1a1a">PDF renderer fetches</text>
+  <text x="300" y="106" font-size="12" text-anchor="middle" fill="#1a1a1a">internal debug log</text>
+  <text x="300" y="122" font-size="11" text-anchor="middle" fill="#1a1a1a">(reveals backup job)</text>
+
+  <line x1="380" y1="90" x2="420" y2="90" stroke="#2b2b2b" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="420" y="50" width="160" height="80" rx="6" fill="#fdecea" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="500" y="72" font-size="13" font-weight="bold" text-anchor="middle" fill="#1a1a1a">STEP 2</text>
+  <text x="500" y="90" font-size="12" text-anchor="middle" fill="#1a1a1a">Path traversal on</text>
+  <text x="500" y="106" font-size="12" text-anchor="middle" fill="#1a1a1a">download endpoint</text>
+  <text x="500" y="122" font-size="11" text-anchor="middle" fill="#1a1a1a">(../../../backups/...)</text>
+
+  <line x1="500" y1="130" x2="500" y2="170" stroke="#2b2b2b" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="420" y="170" width="160" height="80" rx="6" fill="#fdecea" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="500" y="192" font-size="13" font-weight="bold" text-anchor="middle" fill="#1a1a1a">STEP 3</text>
+  <text x="500" y="210" font-size="12" text-anchor="middle" fill="#1a1a1a">Known-plaintext XOR</text>
+  <text x="500" y="226" font-size="12" text-anchor="middle" fill="#1a1a1a">attack recovers key</text>
+  <text x="500" y="242" font-size="11" text-anchor="middle" fill="#1a1a1a">(PEM header trick)</text>
+
+  <line x1="420" y1="210" x2="380" y2="210" stroke="#2b2b2b" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="220" y="170" width="160" height="80" rx="6" fill="#fdecea" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="300" y="192" font-size="13" font-weight="bold" text-anchor="middle" fill="#1a1a1a">STEP 4</text>
+  <text x="300" y="210" font-size="12" text-anchor="middle" fill="#1a1a1a">Decrypt admin</text>
+  <text x="300" y="226" font-size="12" text-anchor="middle" fill="#1a1a1a">credentials</text>
+
+  <line x1="220" y1="210" x2="180" y2="210" stroke="#2b2b2b" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="20" y="170" width="160" height="80" rx="6" fill="#eafaf1" stroke="#1e8449" stroke-width="1.5"/>
+  <text x="100" y="192" font-size="13" font-weight="bold" text-anchor="middle" fill="#1a1a1a">OUTCOME</text>
+  <text x="100" y="210" font-size="12" text-anchor="middle" fill="#1a1a1a">Log in as admin,</text>
+  <text x="100" y="226" font-size="12" text-anchor="middle" fill="#1a1a1a">approve malicious skill</text>
+
+  <text x="370" y="300" font-size="12" text-anchor="middle" fill="#1a1a1a" font-style="italic">No single step here was catastrophic alone — the chain is what mattered.</text>
+  <text x="370" y="320" font-size="11" text-anchor="middle" fill="#1a1a1a">Detour (not shown): a testing tool silently normalized "../" client-side,</text>
+  <text x="370" y="336" font-size="11" text-anchor="middle" fill="#1a1a1a">and plaintext backups had already been replaced by .xor copies.</text>
+</svg>
