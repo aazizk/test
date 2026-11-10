@@ -1,8 +1,8 @@
 # Zero to CEH: A Hands-On Daily Security Journal — Outline
 
 **Course:** security-tutor
-**Last updated:** 2026-11-08
-**Chapters complete:** 26 of 26 taught days (Days 1-26)
+**Last updated:** 2026-11-10
+**Chapters complete:** 27 of 27 taught days (Days 1-27)
 **Export status:** not yet exported
 
 ## Chapter list
@@ -35,7 +35,8 @@
 | 24 | Chapter 24: Checkpoint — The Third Attempt and Four Resolved Watch-Items | chapters/day24-ceh-checkpoint-3.md | draft, good source fidelity | yes | CEH Checkpoint #3 (10 questions, Days 21-23 scope + 4 standing watch-items + 2 older re-checks). nmap closed-vs-filtered finally resolved after 3 prior misses; SameSite=Lax, concurrency/overlapping-delays model, and vertical/horizontal privesc labeling all confirmed clean on fresh scenarios. |
 | 25 | Chapter 25: Who Reads the Token — AAA, SAML, OAuth, and OIDC | chapters/day25-aaa-saml-oauth-oidc.md | draft, good source fidelity | yes | Formal AAA framing (Accounting leg); SAML vs. OAuth vs. OIDC distinguished by purpose; ID-token-vs-access-token audience split (client vs. API, one-time vs. reusable); JWT signature tampering and server-clock validation; nonce-based replay protection. Conceptual session, no lab. |
 | 26 | Chapter 26: Root From a Writable Script | chapters/day26-cron-privesc-lab.md | draft, good source fidelity | yes | Real lab (Docker, isolated network, built fresh): world-writable root-run cron script exploited via a `/dev/tcp` reverse shell to a live root shell (`uid=0`, `/etc/shadow` read); fixed via `chmod 644` and re-verified live (`Permission denied`); detection-vs-prevention compensating-control reasoning closes out Phase 5. |
-| 27+ | *(placeholder — not yet taught)* | — | not started | — | Phase 6 (Cloud Security) start: shared responsibility model, cloud IAM, common misconfigurations. |
+| 27 | Chapter 27: The Shared Responsibility Model — A Real S3 Misconfiguration Lab | chapters/day27-shared-responsibility-s3-lab.md | draft, good source fidelity | yes | Phase 6 opens: shared responsibility model (IaaS/PaaS/SaaS). Real exercise against a shared AWS account: attempted public-S3-bucket misconfiguration blocked by account-level Block Public Access overriding a bucket-level change; pivoted to `get-bucket-policy-status` as the audit tool; S3-as-IaaS classification mistake caught and corrected. |
+| 28+ | *(placeholder — not yet taught)* | — | not started | — | Phase 6 (Cloud Security) continues: IAM in the cloud, common misconfigurations beyond S3. |
 
 ## Status legend
 

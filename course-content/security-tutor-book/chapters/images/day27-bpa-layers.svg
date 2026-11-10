@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 380" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#2b2b2b"/>
+    </marker>
+  </defs>
+
+  <text x="350" y="30" font-size="18" font-weight="bold" text-anchor="middle" fill="#1a1a1a">S3 Block Public Access — Two Layers</text>
+
+  <!-- Account level box -->
+  <rect x="120" y="60" width="460" height="90" rx="6" fill="#eafaf1" stroke="#1e8449" stroke-width="2"/>
+  <text x="350" y="90" font-size="16" font-weight="bold" text-anchor="middle" fill="#1a1a1a">ACCOUNT-LEVEL Block Public Access</text>
+  <text x="350" y="115" font-size="14" text-anchor="middle" fill="#1a1a1a">All four flags: TRUE (set by org admin)</text>
+  <text x="350" y="135" font-size="14" text-anchor="middle" fill="#1a1a1a">Overrides every bucket in the account</text>
+
+  <!-- Arrow down -->
+  <line x1="350" y1="150" x2="350" y2="200" stroke="#2b2b2b" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="365" y="180" font-size="13" fill="#1a1a1a">overrides</text>
+
+  <!-- Bucket level box -->
+  <rect x="120" y="205" width="460" height="90" rx="6" fill="#fdecea" stroke="#c0392b" stroke-width="2"/>
+  <text x="350" y="235" font-size="16" font-weight="bold" text-anchor="middle" fill="#1a1a1a">BUCKET-LEVEL Block Public Access</text>
+  <text x="350" y="260" font-size="14" text-anchor="middle" fill="#1a1a1a">Flags set to FALSE (deliberately, for this exercise)</text>
+  <text x="350" y="280" font-size="14" text-anchor="middle" fill="#1a1a1a">Public-read policy attached: Principal "*", s3:GetObject</text>
+
+  <!-- Result -->
+  <line x1="350" y1="295" x2="350" y2="330" stroke="#2b2b2b" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="200" y="335" width="300" height="35" rx="6" fill="#f2f4f7" stroke="#2b2b2b" stroke-width="2"/>
+  <text x="350" y="358" font-size="14" font-weight="bold" text-anchor="middle" fill="#1a1a1a">RESULT: PutBucketPolicy denied</text>
+</svg>
