@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#2b2b2b"/>
+    </marker>
+  </defs>
+  <text x="360" y="26" font-size="17" font-weight="bold" text-anchor="middle" fill="#1a1a1a">Two Models of Port Exposure</text>
+
+  <!-- Top row: public web port, intended exposure -->
+  <text x="150" y="58" font-size="15" font-weight="bold" text-anchor="middle" fill="#1a1a1a">Intended Public Service</text>
+  <circle cx="40" cy="100" r="18" fill="#f2f4f7" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="40" y="105" font-size="12" text-anchor="middle" fill="#1a1a1a">INTERNET</text>
+  <line x1="60" y1="100" x2="120" y2="100" stroke="#2b2b2b" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="120" y="75" width="150" height="50" rx="6" fill="#eafaf1" stroke="#1e8449" stroke-width="1.5"/>
+  <text x="195" y="96" font-size="13" text-anchor="middle" fill="#1a1a1a">Port 80 / 443</text>
+  <text x="195" y="113" font-size="11" text-anchor="middle" fill="#1a1a1a">Web Server (by design)</text>
+  <line x1="270" y1="100" x2="330" y2="100" stroke="#2b2b2b" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="330" y="75" width="170" height="50" rx="6" fill="#f2f4f7" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="415" y="96" font-size="12" text-anchor="middle" fill="#1a1a1a">Compromise bound =</text>
+  <text x="415" y="113" font-size="12" text-anchor="middle" fill="#1a1a1a">app-level foothold only</text>
+
+  <!-- Middle row: open admin port, bad -->
+  <text x="150" y="178" font-size="15" font-weight="bold" text-anchor="middle" fill="#1a1a1a">Admin Port Left Open (bad)</text>
+  <circle cx="40" cy="220" r="18" fill="#fdecea" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="40" y="225" font-size="11" text-anchor="middle" fill="#1a1a1a">ATTACKER</text>
+  <line x1="60" y1="220" x2="120" y2="220" stroke="#c0392b" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="120" y="195" width="150" height="50" rx="6" fill="#fdecea" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="195" y="216" font-size="13" text-anchor="middle" fill="#1a1a1a">Port 22 / 3389</text>
+  <text x="195" y="233" font-size="11" text-anchor="middle" fill="#1a1a1a">0.0.0.0/0 (ANY IP)</text>
+  <line x1="270" y1="220" x2="330" y2="220" stroke="#c0392b" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="330" y="195" width="170" height="50" rx="6" fill="#fdecea" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="415" y="216" font-size="12" text-anchor="middle" fill="#1a1a1a">Compromise bound =</text>
+  <text x="415" y="233" font-size="12" text-anchor="middle" fill="#1a1a1a">FULL OS SHELL (root)</text>
+
+  <!-- Bottom row: SSM model, good -->
+  <text x="150" y="298" font-size="15" font-weight="bold" text-anchor="middle" fill="#1a1a1a">SSM Model (no open port)</text>
+  <rect x="20" y="320" width="150" height="50" rx="6" fill="#f2f4f7" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="95" y="341" font-size="13" text-anchor="middle" fill="#1a1a1a">Linux or Windows</text>
+  <text x="95" y="358" font-size="11" text-anchor="middle" fill="#1a1a1a">instance (SSM agent)</text>
+  <line x1="170" y1="345" x2="330" y2="345" stroke="#2b2b2b" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="250" y="338" font-size="10" text-anchor="middle" fill="#1a1a1a">outbound only</text>
+  <rect x="330" y="320" width="170" height="50" rx="6" fill="#eafaf1" stroke="#1e8449" stroke-width="1.5"/>
+  <text x="415" y="341" font-size="13" text-anchor="middle" fill="#1a1a1a">AWS SSM Service</text>
+  <text x="415" y="358" font-size="11" text-anchor="middle" fill="#1a1a1a">no inbound port needed</text>
+  <text x="250" y="400" font-size="11" text-anchor="middle" fill="#1a1a1a">No listening port = nothing for a scanner to even find</text>
+</svg>
