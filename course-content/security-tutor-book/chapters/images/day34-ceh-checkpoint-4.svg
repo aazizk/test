@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#2b2b2b"/>
+    </marker>
+  </defs>
+  <text x="360" y="24" font-size="17" font-weight="bold" text-anchor="middle" fill="#1a1a1a">IaaS vs. PaaS vs. SaaS: Placing S3 Correctly</text>
+
+  <!-- IaaS column -->
+  <rect x="30" y="60" width="200" height="200" rx="6" fill="#f2f4f7" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="130" y="85" font-size="15" font-weight="bold" text-anchor="middle" fill="#1a1a1a">IaaS</text>
+  <text x="130" y="108" font-size="12" text-anchor="middle" fill="#1a1a1a">Customer manages</text>
+  <text x="130" y="124" font-size="12" text-anchor="middle" fill="#1a1a1a">the OS and above</text>
+  <rect x="50" y="150" width="160" height="40" rx="5" fill="#eafaf1" stroke="#1e8449" stroke-width="1.5"/>
+  <text x="130" y="174" font-size="13" text-anchor="middle" fill="#1a1a1a">Example: EC2</text>
+
+  <!-- PaaS column -->
+  <rect x="260" y="60" width="200" height="200" rx="6" fill="#f2f4f7" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="360" y="85" font-size="15" font-weight="bold" text-anchor="middle" fill="#1a1a1a">PaaS</text>
+  <text x="360" y="108" font-size="12" text-anchor="middle" fill="#1a1a1a">Provider manages platform,</text>
+  <text x="360" y="124" font-size="12" text-anchor="middle" fill="#1a1a1a">customer still deploys onto it</text>
+  <rect x="280" y="150" width="160" height="40" rx="5" fill="#eafaf1" stroke="#1e8449" stroke-width="1.5"/>
+  <text x="360" y="174" font-size="13" text-anchor="middle" fill="#1a1a1a">Example: RDS</text>
+
+  <!-- SaaS-like column -->
+  <rect x="490" y="60" width="200" height="200" rx="6" fill="#f2f4f7" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="590" y="85" font-size="15" font-weight="bold" text-anchor="middle" fill="#1a1a1a">SaaS-like</text>
+  <text x="590" y="108" font-size="12" text-anchor="middle" fill="#1a1a1a">Fully managed, ready to use,</text>
+  <text x="590" y="124" font-size="12" text-anchor="middle" fill="#1a1a1a">no platform to deploy onto</text>
+  <rect x="510" y="150" width="160" height="40" rx="5" fill="#fdecea" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="590" y="174" font-size="13" text-anchor="middle" fill="#1a1a1a">S3 belongs here</text>
+  <text x="590" y="210" font-size="11" text-anchor="middle" fill="#1a1a1a">(missed twice: called</text>
+  <text x="590" y="225" font-size="11" text-anchor="middle" fill="#1a1a1a">IaaS once, PaaS once)</text>
+
+  <text x="360" y="300" font-size="13" text-anchor="middle" fill="#1a1a1a">Substance understood both times; only the 3-letter label keeps slipping.</text>
+</svg>

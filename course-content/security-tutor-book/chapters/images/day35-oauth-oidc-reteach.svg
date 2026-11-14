@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#2b2b2b"/>
+    </marker>
+  </defs>
+  <text x="360" y="24" font-size="17" font-weight="bold" text-anchor="middle" fill="#1a1a1a">ID Token vs. Access Token: Who Reads What</text>
+
+  <!-- Google box -->
+  <rect x="300" y="55" width="120" height="55" rx="6" fill="#f2f4f7" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="360" y="88" font-size="14" text-anchor="middle" fill="#1a1a1a">Google (issuer)</text>
+
+  <!-- ID token arrow to app -->
+  <line x1="320" y1="110" x2="150" y2="170" stroke="#2b2b2b" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="200" y="135" font-size="13" fill="#1a1a1a">ID token</text>
+
+  <!-- Access token arrow to app -->
+  <line x1="400" y1="110" x2="560" y2="170" stroke="#2b2b2b" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="470" y="135" font-size="13" fill="#1a1a1a">Access token</text>
+
+  <!-- App box (TripPlanner) -->
+  <rect x="60" y="175" width="180" height="70" rx="6" fill="#eafaf1" stroke="#1e8449" stroke-width="1.5"/>
+  <text x="150" y="205" font-size="14" font-weight="bold" text-anchor="middle" fill="#1a1a1a">TripPlanner (app)</text>
+  <text x="150" y="226" font-size="12" text-anchor="middle" fill="#1a1a1a">reads ID token ONCE</text>
+  <text x="150" y="241" font-size="12" text-anchor="middle" fill="#1a1a1a">learns: who logged in</text>
+
+  <!-- Access token held by app, forwarded to API -->
+  <rect x="480" y="175" width="180" height="70" rx="6" fill="#f2f4f7" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="570" y="205" font-size="14" font-weight="bold" text-anchor="middle" fill="#1a1a1a">TripPlanner (app)</text>
+  <text x="570" y="226" font-size="12" text-anchor="middle" fill="#1a1a1a">holds access token</text>
+  <text x="570" y="241" font-size="12" text-anchor="middle" fill="#1a1a1a">presents it per API call</text>
+
+  <!-- Arrow from right app box down to Calendar API -->
+  <line x1="570" y1="245" x2="570" y2="300" stroke="#2b2b2b" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="480" y="300" width="180" height="55" rx="6" fill="#f2f4f7" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="570" y="332" font-size="13" text-anchor="middle" fill="#1a1a1a">Calendar API</text>
+  <text x="570" y="347" font-size="11" text-anchor="middle" fill="#1a1a1a">reads access token, repeatedly</text>
+
+  <!-- Dead end for ID token at app -->
+  <line x1="150" y1="245" x2="150" y2="300" stroke="#c0392b" stroke-width="2" stroke-dasharray="5,4"/>
+  <rect x="60" y="300" width="180" height="55" rx="6" fill="#fdecea" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="150" y="325" font-size="12" font-weight="bold" text-anchor="middle" fill="#1a1a1a">ID token: no further use</text>
+  <text x="150" y="342" font-size="11" text-anchor="middle" fill="#1a1a1a">never shown to any API</text>
+
+  <text x="360" y="378" font-size="13" text-anchor="middle" fill="#1a1a1a">Test: "which API would reject this token?" only makes sense for the access token.</text>
+</svg>
